@@ -1,0 +1,71 @@
+
+Fast List v1.0 brief documentation
+
+Command line format:
+  'flist [options] [file1 file2 ...]'
+
+  Options:
+    -tn   where number 'n' toggles titlebar, (0 is off)
+    -wn   where number 'n' specifies maximum line length
+    -ln   where number 'n' specifies maximum number of lines
+    -i    allows shell to choose window placement, not ini file
+
+Note: Command line pipes and I/O redirection can be used with Fast List
+
+
+Mouse operations:
+  maximize/restore window:  chord
+  minimize window:          ctrl-chord
+  move window:              right button drag
+  highlight lines:          left-click or left button drag
+  highlight multiple lines: double left click
+  drag text:                ctrl-right button drag, shift-right button drag
+  pop-up menu:              right click
+
+Keyboard operations:
+  The pop-up menu accelerator keys can be used when menu is not shown.
+  Other keys:
+     'Home'                       : top of file
+     'End'                        : bottom of file
+     'Del'                        : delete highlighted text
+     'Esc'                        : quit without saving to .ini file
+     up, down, left, right arrows : what do you think?
+     ctrl-left, ctrl-right        : page left/right
+     pageup, pagedown             : obvious
+     ']'                          : find next
+     '['                          : find previous
+     '+'                          : go to next mark
+     '-'                          : go to previous mark
+
+Menu operations:
+   'A-Append'      : append file to list
+   'S-Save'        : save list to file
+   'C-Copy'        : copy marked lines to clipboard
+   'P-Paste'       : paste
+   'U-Accum'       : accumulate clipboard.
+                     Copies to clipboard are appended to list.
+   'N-Unmark All'  : unmark all highlighted lines.
+   'R-Rearrange'   : rearrange highlighted lines in the order they were marked.
+   'F-Find'        : find text
+   'K-Mark Find'   : highlight all found text
+   'M-Mate'        : mate scroll. Select mate window.  Scroll messages will be
+                     sent to the mate.  Use the alt and ctrl keys to block
+                     scroll messages to a particular window.
+   'S-Spawn'       : spawn another
+   'Q-Quit'        : quit.  Save font, position, and size to .ini file
+
+-----------------------------------------------------------------------------
+
+This program is free of any charge to individuals on the assumption
+that they, in turn, do not attempt to redistribute this program or the
+provided source for monetary gain.
+
+This program and its provided source are available for use by public
+and/or commercial institutions on the precondition that they obtain
+permission from the author before doing so.
+
+----------------------------------------------------------------------------
+Any queries can be directed to my (the author's) email address below:
+
+Russ Weathersby - circa November of 1996
+rsweath@ibm.net

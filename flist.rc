@@ -1,0 +1,111 @@
+/****************************************************************************
+
+FLIST.RC
+
+*****************************************************************************/
+#include <os2.h>
+#include "flwin.h"
+#include "res.h"
+
+DLGTEMPLATE ID_FINDDLG LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Find", ID_FINDDLG, 17, 141, 148, 30, WS_VISIBLE, FCF_SYSMENU |
+            FCF_TITLEBAR
+    BEGIN
+        ENTRYFIELD      "", ID_FINDENTRY, 6, 18, 134, 8, ES_MARGIN
+        AUTOCHECKBOX    "Case Sensitive", ID_FINDCHECK, 4, 3, 76, 10
+    END
+END
+
+DLGTEMPLATE ID_ABOUTDLG LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "About", ID_ABOUTDLG, 19, 28, 166, 107, WS_VISIBLE, FCF_SYSMENU |
+            FCF_TITLEBAR
+            PRESPARAMS PP_FONTNAMESIZE, "10.Helv"
+    BEGIN
+        ICON            ID_FLWIN_RES, ID_FLWIN_RES, 8, 87, 21, 16, WS_GROUP
+        ICON            ID_FLWIN_RES, ID_FLWIN_RES, 137, 87, 21, 16, WS_GROUP
+        LTEXT           "Fast List v1.0", ID_NULL, 52, 95, 62, 8
+        LTEXT           "by Russ Weathersby", ID_NULL, 43, 87, 86, 8
+        LTEXT           "circa August 1996", ID_NULL, 47, 79, 89, 8
+        LTEXT           "Pgm Args: -tn titlebar   -wn width   -ln lines",
+                        ID_NULL, 4, 68, 150, 7
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        LTEXT           "Quick Keys - same as menu keys, additionally:"
+                        ID_NULL, 4, 61, 150, 7
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        LTEXT           "    '+-' next/prev mark    '][' find next/prev"
+                        ID_NULL, 4, 54, 150, 7
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        GROUPBOX        "Stats", ID_NULL, 8, 6, 98, 46
+        LTEXT           "Lines :", ID_NULL, 12, 35, 26, 8
+        LTEXT           "Marked :", ID_NULL, 12, 27, 36, 8
+        LTEXT           "Max Lines :", ID_NULL, 12, 19, 45, 8
+        LTEXT           "Max Length :", ID_NULL, 12, 11, 50, 8
+        LTEXT           "", ID_LINES, 69, 35, 30, 8
+        LTEXT           "", ID_MARKED, 69, 27, 30, 8
+        LTEXT           "", ID_MAXLINES, 69, 19, 30, 8
+        LTEXT           "", ID_MAXLENGTH, 69, 11, 30, 8
+        PUSHBUTTON      "Ok", ID_ABOUTBUTTON, 110, 17, 45, 20
+    END
+END
+
+ICON    ID_FLWIN_RES   "flist.ico"
+
+MENU ID_POPUP
+  BEGIN
+    MENUITEM "~Copy",        CMD_COPY
+    MENUITEM "~Paste",       CMD_PASTE
+    MENUITEM "U~nmark All",  CMD_UNMARK
+    MENUITEM SEPARATOR
+    MENUITEM "         \17", CMD_ABOUT
+    MENUITEM SEPARATOR
+    MENUITEM "~Append File", CMD_APPEND
+    MENUITEM "~Save As...",  CMD_SAVE
+    MENUITEM "~Rearrange",   CMD_REARRANGE, MIS_BREAKSEPARATOR
+    MENUITEM "~Find",        CMD_FIND
+    MENUITEM "Mar~k Find",   CMD_MARKFIND
+    MENUITEM "Acc~um Clip",  CMD_ACCUM
+    MENUITEM SEPARATOR
+    MENUITEM "~Mate Scroll", CMD_MATE
+    MENUITEM "Spa~wn",       CMD_SPAWN
+    MENUITEM SEPARATOR
+    MENUITEM "~Quit",        CMD_QUIT
+  END
+
+ACCELTABLE ID_ACCEL
+  BEGIN
+        "A",   CMD_APPEND
+        "a",   CMD_APPEND
+        "S",   CMD_SAVE
+        "s",   CMD_SAVE
+        "C",   CMD_COPY
+        "c",   CMD_COPY
+        "P",   CMD_PASTE
+        "p",   CMD_PASTE
+        "U",   CMD_ACCUM
+        "u",   CMD_ACCUM
+        "N",   CMD_UNMARK
+        "n",   CMD_UNMARK
+        "R",   CMD_REARRANGE
+        "r",   CMD_REARRANGE
+        "F",   CMD_FIND
+        "f",   CMD_FIND
+        "K",   CMD_MARKFIND
+        "k",   CMD_MARKFIND
+        "]",   CMD_FINDNEXT
+        "[",   CMD_FINDPREV
+        "-",   CMD_PREVMARK
+        "_",   CMD_PREVMARK
+        "=",   CMD_NEXTMARK
+        "+",   CMD_NEXTMARK
+        "M",   CMD_MATE
+        "m",   CMD_MATE
+        "W",   CMD_SPAWN
+        "w",   CMD_SPAWN
+        "Q",   CMD_QUIT
+        "q",   CMD_QUIT
+  END
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
